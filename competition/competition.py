@@ -1,11 +1,9 @@
 from __future__ import annotations
 
 import pandas as pd
-from competition.display import DisplayCompetition
-from competition.const import TabularCompetitionDataFrameType
-from competition.columns import TabularCompetitionBinaryColumn
-from competition.columns import TabularCompetitionCategoricalColumn
-from competition.columns import TabularCompetitionNumericalColumn
+from .display import DisplayCompetition
+from .const import TabularCompetitionDataFrameType
+from .columns import TabularCompetitionBinaryColumn, TabularCompetitionCategoricalColumn, TabularCompetitionNumericalColumn
 from typing import Callable, List, Optional
 from sklearn.decomposition import PCA
 

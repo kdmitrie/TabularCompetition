@@ -8,7 +8,7 @@ import seaborn as sns
 from scipy.stats import chisquare
 from typing import List, Dict, Tuple
 
-from competition.const import TabularCompetitionDataFrameType, translate
+from .const import TabularCompetitionDataFrameType, translate
 
 
 class TabularCompetitionColumn(ABC):

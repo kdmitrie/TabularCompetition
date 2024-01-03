@@ -15,6 +15,7 @@ from competition.solver import TabularCompetitionSolver
 
 TRAIN_CSV = "./data/binary_classification/train.csv"
 TEST_CSV = "./data/binary_classification/test.csv"
+SUBMIT_CSV = "./data/binary_classification/sample_submission.csv"
 EXTERNAL_CSV = "./data/binary_classification/orig.csv"
 
 DISPLAY_FAQ = True
@@ -119,7 +120,7 @@ if __name__ == '__main__':
 
     competition_display.h1('3. Submit')
     target = competition.target[0]
-    data_submit = pd.read_csv('/kaggle/input/playground-series-s4e1/sample_submission.csv')
+    data_submit = pd.read_csv(SUBMIT_CSV)
 
     results = {
         'rf': rf_results,

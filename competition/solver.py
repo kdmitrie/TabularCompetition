@@ -16,9 +16,9 @@ from lightgbm import LGBMRegressor, LGBMClassifier
 
 from sklearn.ensemble import StackingRegressor, StackingClassifier
 
-from competition.competition import TabularCompetition
-from competition.const import TabularCompetitionDataFrameType
-from competition.display import DisplayCompetition
+from .competition import TabularCompetition
+from .const import TabularCompetitionDataFrameType
+from .display import DisplayCompetition
 
 
 class TabularCompetitionSolver(ABC):

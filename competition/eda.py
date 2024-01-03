@@ -7,10 +7,10 @@ from sklearn.model_selection import BaseCrossValidator
 import numpy as np
 
 
-from competition.const import TabularCompetitionDataFrameType, translate
-from competition.competition import TabularCompetition
-from competition.display import DisplayCompetition
-from competition.columns import TabularCompetitionCategoricalColumn, TabularCompetitionColumn
+from .const import TabularCompetitionDataFrameType, translate
+from .competition import TabularCompetition
+from .display import DisplayCompetition
+from .columns import TabularCompetitionCategoricalColumn, TabularCompetitionColumn
 
 class TabularCompetitionFAQ:
     def __init__(self, competition: TabularCompetition, display: DisplayCompetition):
