@@ -20,6 +20,7 @@ EXTERNAL_CSV = "./data/binary_classification/orig.csv"
 DISPLAY_FAQ = True
 N_TRIALS = 3
 
+
 # We perform the preprocessing of the external dataframe to make it consistent with generated dataframes
 def original_preprocessing(df):
     df.rename(columns={'RowNumber': 'id'}, inplace=True)
@@ -51,6 +52,7 @@ def df_preprocessing(df):
     df.drop('CustomerId', axis=1, inplace=True)
 
     return df
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -96,19 +98,19 @@ if __name__ == '__main__':
     tcs.split_train_test()
 
     rf_results = tcs.optimize_parameters(RandomForestClassifier, n_trials=N_TRIALS)
-    #rf_results = tcs.use_parameters(RandomForestClassifier, [{'n_estimators': 256, 'max_depth': 15, 'min_samples_leaf': 8}])
+    # rf_results = tcs.use_parameters(RandomForestClassifier, [{'n_estimators': 256, 'max_depth': 15, 'min_samples_leaf': 8}])
 
     xgb_results = tcs.optimize_parameters(XGBClassifier, n_trials=N_TRIALS)
-    #xgb_results = tcs.use_parameters(XGBClassifier, [{'n_estimators': 123, 'max_depth': 4, 'learning_rate': 0.21001401029627081, 'subsample': 0.9966588774680264}])
+    # xgb_results = tcs.use_parameters(XGBClassifier, [{'n_estimators': 123, 'max_depth': 4, 'learning_rate': 0.21001401029627081, 'subsample': 0.9966588774680264}])
 
     cb_results = tcs.optimize_parameters(CatBoostClassifier, n_trials=N_TRIALS)
-    #cb_results = tcs.use_parameters(CatBoostClassifier, [{'iterations': 308, 'max_depth': 5, 'learning_rate': 0.07887693553154532}])
+    # cb_results = tcs.use_parameters(CatBoostClassifier, [{'iterations': 308, 'max_depth': 5, 'learning_rate': 0.07887693553154532}])
 
     gb_results = tcs.optimize_parameters(GradientBoostingClassifier, n_trials=N_TRIALS)
-    #gb_results = tcs.use_parameters(GradientBoostingClassifier, [{'n_estimators': 192, 'max_depth': 6, 'min_samples_leaf': 3, 'learning_rate': 0.051424514052856085, 'subsample': 0.8282254513081093}	])
+    # gb_results = tcs.use_parameters(GradientBoostingClassifier, [{'n_estimators': 192, 'max_depth': 6, 'min_samples_leaf': 3, 'learning_rate': 0.051424514052856085, 'subsample': 0.8282254513081093}	])
 
     lgb_results = tcs.optimize_parameters(LGBMClassifier, n_trials=N_TRIALS)
-    #lgb_results = tcs.use_parameters(LGBMClassifier, [{'n_estimators': 256, 'max_depth': 6, 'num_leaves': 10, 'learning_rate': 0.10559841062803202, 'subsample': 0.48968310648298274}])
+    # lgb_results = tcs.use_parameters(LGBMClassifier, [{'n_estimators': 256, 'max_depth': 6, 'num_leaves': 10, 'learning_rate': 0.10559841062803202, 'subsample': 0.48968310648298274}])
 
     stack_all_results = tcs.stack(estimator_classes=[RandomForestClassifier, XGBClassifier, CatBoostClassifier, LGBMClassifier], final_estimator=LogisticRegression())
 
